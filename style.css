@@ -1,0 +1,295 @@
+/* === General Reset and Body Styling === */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(black, #0d1b2a);
+  background-color: #0d1b2a; /* Fallback color */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white; /* Make sure default text is readable */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #a4cff6;
+}
+
+/* === Navigation Bar Styling (Your Original Styles) === */
+
+/* Style the main navigation container */
+.main-nav {
+  background-color: #333; /* Dark background for the bar */
+  padding: 10px 0; /* Add some vertical padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
+}
+
+/* Style the list that holds the links */
+.main-nav ul {
+  list-style-type: none; /* This removes the bullet points */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center the links within the nav bar */
+}
+
+/* Style each list item */
+.main-nav li {
+  display: inline-block; /* This makes the list items appear side-by-side */
+  margin: 0 15px; /* Adds space between the links */
+}
+
+/* Style the actual hyperlink tags */
+.main-nav a {
+  color: white; /* White text color */
+  text-decoration: none; /* Removes the underline from links */
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px;
+  transition: color 0.3s ease; /* Adds a smooth transition for the hover effect */
+}
+
+/* Style the links when a mouse hovers over them */
+.main-nav a:hover {
+  color: #a4cff6; /* Changes color to a light blue on hover for feedback */
+}
+
+/* For links in your navigation bar */
+.main-nav a:link,
+.main-nav a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  color: #a4cff6;
+}
+
+.main-nav a:active {
+  color: #8abde7; /* This replaces the default blue flash */
+}
+
+
+/* === Hero Section Styling === */
+
+#hero {
+  display: flex; /* This enables flexbox, a modern way to align items */
+  flex-direction: column; /* Stacks content vertically */
+  justify-content: center; /* This centers the content horizontally */
+  align-items: center; /* This centers the content vertically */
+  min-height: 90vh; /* Makes the section take up 90% of the viewport height */
+  text-align: center;
+  padding: 0 20px; /* Adds some padding on the sides */
+}
+
+/* Style the main name heading */
+#hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+/* Style the paragraph subheading */
+#hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Style the "Call to Action" button */
+.cta-button {
+  display: inline-block;
+  background-color: #a4cff6; /* Light blue background */
+  color: #333; /* Dark text color */
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin: 10px; /* Adds space between two buttons */
+}
+
+.cta-button:hover {
+  background-color: #8abde7;
+  transform: translateY(-2px); /* Lifts the button slightly on hover */
+}
+
+
+/* === Projects Section Styling (Applied to #projects or #featured-projects) === */
+
+#projects, #featured-projects {
+  padding: 40px 20px; /* Adds space around the whole section */
+  text-align: center;
+}
+
+#projects h1, #featured-projects h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.project-container {
+  display: flex; /* Aligns project cards in a row */
+  justify-content: center; /* Centers the cards */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+  gap: 30px; /* Increased space between the cards */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* PROJECT CARD BUTTON ALIGNMENT FIX */
+.project-card {
+  background-color: #1e2a38; /* A slightly lighter dark blue */
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 25px;
+  width: 300px; /* Sets a fixed width for each card */
+  text-align: left; /* Aligns text to the left inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  /* --- FLEXBOX & HEIGHT FOR ALIGNMENT --- */
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  min-height: 250px; /* NEW: Ensures all cards have the same minimum height */
+  /* -------------------------------------- */
+}
+
+.project-card h2 {
+  margin-top: 0;
+}
+
+.project-card p {
+  line-height: 1.6; /* Improves readability */
+}
+
+.project-card .cta-button {
+  margin-top: 15px;
+  text-align: center;
+}
+
+
+/* === About Me Section Styling === */
+
+#about {
+  padding: 60px 20px;
+  background-color: rgba(13, 27, 42, 0.5); /* Semi-transparent dark blue overlay */
+}
+
+.about-container {
+  display: flex; /* This enables the two-column layout */
+  align-items: center; /* Vertically aligns the picture and text */
+  justify-content: center; /* Horizontally centers the columns */
+  gap: 40px; /* Creates space between the picture and the text */
+  max-width: 900px; /* Sets a max width for the content */
+  margin: 0 auto; /* Centers the container on the page */
+}
+
+/* Style the container for the image */
+.about-image {
+  flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+/* Style for your profile picture (re-using from before) */
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  object-position: top;
+  border: 4px solid #444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the container for the text */
+.about-text h2 {
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.7; /* Increases spacing between lines for readability */
+}
+
+
+/* === Content Page Styling (for About, Contact, etc.) === */
+
+.content-page {
+  max-width: 800px; /* Sets a comfortable reading width */
+  margin: 40px auto; /* Centers the content on the page */
+  padding: 0 20px; /* Adds space on the sides */
+  line-height: 1.7;
+}
+
+.content-page h1 {
+  font-size: 42px;
+  border-bottom: 2px solid #a4cff6; /* Adds an accent line under the main title */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.content-page h2 {
+  font-size: 28px;
+  margin-top: 40px;
+}
+
+/* === Footer Styling (New Addition) === */
+
+footer {
+  background-color: #111; /* A very dark background */
+  color: #aaa; /* Light grey text color */
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px; /* Pushes the footer down from the last content */
+}
+
+.footer-content a {
+  color: #a4cff6; /* Light blue for links */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+/* === Responsive Design (for Mobile Phones) === */
+
+@media (max-width: 768px) {
+  
+  /* THIS SECTION MAKES THE NAVIGATION VERTICAL ON SMALL SCREENS (Phones) */
+  .main-nav li {
+    display: block; /* Stacks nav links vertically */
+    margin: 10px 0;
+  }
+  
+  /* Make two-column layouts stack vertically */
+  .about-container {
+    flex-direction: column;
+  }
+
+  /* Adjust font sizes for smaller screens */
+  #hero h1 {
+    font-size: 36px;
+  }
+
+  #hero p {
+    font-size: 18px;
+  }
+
+  #projects h1, #featured-projects h2, .content-page h1 {
+    font-size: 32px;
+  }
+  
+  .project-card {
+    width: 90%; /* Make cards take up most of the screen width */
+    margin: 10px auto;
+  }
+}

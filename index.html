@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Nicolas Dunlap - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Hello, World!</h1>
-    <p>My website is live!</p>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="documents/nicolasdunlapcsresume.pdf" target="_blank">Resume</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Nicolas Dunlap</h1>
+            <p>Computer Science and Engineering Student at The Ohio State University</p>
+            <a href="projects.html" class="cta-button">View My Work</a>
+            <a href="contact.html" class="cta-button secondary-cta">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/nicoprofilephoto.jpg" alt="A photo of Nicolas Dunlap" class="profile-picture">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    My passion for coding first ignited in 2nd grade when I joined a coding club and began using Scratch block coding. This early, hands-on experience in problem solving was later solidified by taking an 'Introduction to Python' class as a freshman in high school, which guided my academic path to The Ohio State University for Computer Science and Engineering.
+                </p>
+                <p>
+                    Currently, I focus on writing practical applications in Java, C++, and Python. Beyond the code, my experience running a landscaping business has taught me invaluable lessons in client communication and accountability, skills I apply to every project.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-projects">
+    <h2>Featured Projects</h2>
+    <div class="project-container">
+
+        <div class="project-card">
+            <h2>Personal Budget Tracker</h2>
+            <p>Developed a command-line application in Java for tracking personal income and expenses.</p>
+            <p>Implemented **File I/O** to save and load user data to a `.txt` file, ensuring data persistence between sessions.</p>
+            <p><strong>Technologies:</strong> Java, File I/O, Command Line Interface</p>
+            <a href="https://github.com/ndunl075/Personal-Budget-Tracker" target="_blank" class="cta-button">View Code</a>
+        </div>
+
+        <div class="project-card">
+            <h2>Phone Book</h2>
+            <p>A Java command-line application developed to manage, search, and save user contacts using file I/O for data persistence.</p>
+            <p>This project demonstrates core data structures and object-oriented principles.</p>
+            <p><strong>Technologies:</strong> Java, File I/O, OOP</p>
+            <a href="https://github.com/ndunl075/Basic-Phone-Book-Java" target="_blank" class="cta-button">View Code</a>
+        </div>
+
+    </div>
+    <a href="projects.html" class="cta-button secondary-cta">View All Projects</a>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <p>
+                <a href="https://www.linkedin.com/in/nicolas-dunlap-293439307/" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/ndunl075" target="_blank">GitHub</a>
+            </p>
+            <p>&copy; 2025 Nicolas Dunlap. All Rights Reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
