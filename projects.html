@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Added styles for the project card button group -->
+    <style>
+        .button-group {
+            display: flex;
+            gap: 10px; /* Creates space between the two buttons */
+            margin-top: 15px; /* Aligns with the margin of single buttons */
+        }
+
+        .button-group .cta-button {
+            margin: 0; /* Removes the default margin to rely on the gap */
+            flex: 1;   /* Makes both buttons equal width and fill the space */
+            text-align: center; /* Ensures the text inside the button is centered */
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +37,19 @@
     <main class="content-page">
         <h1>My Projects</h1>
         <div class="project-container">
+
+            
+            <div class="project-card">
+                <h2>Tennis Match Predictor AI</h2>
+                <p>A data-driven application that uses machine learning to predict the outcomes of professional ATP tennis matches based on historical statistics.</p>
+                <p>Developed an end-to-end machine learning pipeline, which included data processing, feature engineering, model training, and deployment into both a web app and a desktop GUI.</p>
+                <p><strong>Technologies:</strong> Python, Pandas, Scikit-learn, Streamlit, Tkinter, Joblib</p>
+               
+                <div class="button-group">
+                    <a href="https://tennis-match-predictor-ai-nicolasdunlap.streamlit.app/" target="_blank" class="cta-button">View Live App</a>
+                    <a href="https://github.com/ndunl075/Tennis-Match-Predictor-AI" target="_blank" class="cta-button">View Code</a>
+                </div>
+            </div>
 
             <div class="project-card">
                 <h2>Personal Budget Tracker</h2>
@@ -44,13 +71,6 @@
                 <p><strong>Technologies:</strong> Java</p>
                 <a href="https://github.com/ndunl075/Basic-Calculator/tree/main" target="_blank" class="cta-button">View Code</a>
             </div>
-            
-            <div class="project-card">
-                <h2>Phone Book</h2>
-                <p>A Java command-line application developed to manage, search, and save user contacts using file I/O for data persistence. This project demonstrates core data structures and object-oriented principles.</p>
-                <p><strong>Technologies:</strong> Java, File I/O, OOP</p>
-                <a href="https://github.com/ndunl075/Basic-Phone-Book-Java" target="_blank" class="cta-button">View Code</a>
-            </div>
 
         </div>
     </main>
@@ -66,3 +86,4 @@
     </footer>
 </body>
 </html>
+
