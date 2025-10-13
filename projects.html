@@ -6,18 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Added styles for the project card button group -->
     <style>
+        /* New styles for 3-column project grid with responsiveness */
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; 
+            padding: 20px 0;
+        }
+
+        /* Media query for responsiveness: Switch to 2 columns on tablets/smaller screens */
+        @media (max-width: 1024px) {
+            .project-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Media query for responsiveness: Switch to 1 column on mobile phones */
+        @media (max-width: 600px) {
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Styles for the project card button group (Existing) */
         .button-group {
             display: flex;
-            gap: 10px; /* Creates space between the two buttons */
-            margin-top: 15px; /* Aligns with the margin of single buttons */
+            gap: 10px; 
+            margin-top: 15px;
         }
 
         .button-group .cta-button {
-            margin: 0; /* Removes the default margin to rely on the gap */
-            flex: 1;   /* Makes both buttons equal width and fill the space */
-            text-align: center; /* Ensures the text inside the button is centered */
+            margin: 0;
+            flex: 1;  
+            text-align: center;
         }
     </style>
 </head>
@@ -40,7 +62,7 @@
 
             
             <div class="project-card">
-                <h2>Tennis Match Predictor AI</h2>
+                <h2>Tennis Match Prediction AI</h2>
                 <p>A data-driven application that uses machine learning to predict the outcomes of professional ATP tennis matches based on historical statistics.</p>
                 <p>Developed an end-to-end machine learning pipeline, which included data processing, feature engineering, model training, and deployment into both a web app and a desktop GUI.</p>
                 <p><strong>Technologies:</strong> Python, Pandas, Scikit-learn, Streamlit, Tkinter, Joblib</p>
@@ -51,38 +73,42 @@
                 </div>
             </div>
             
-            <!-- OSU STUDY SPOT FINDER CARD -->
             <div class="project-card">
                 <h2>OSU Study Spot Finder</h2>
-                <p>A modern web application that provides **real-time, crowdsourced occupancy status** for campus libraries, helping students quickly find available study spaces.</p>
-                <p>Uses **real-time listeners** and custom aggregation logic to determine the most common status reported within the last 60 minutes.</p>
+                <p>A modern web application that provides real-time, crowdsourced occupancy status for campus libraries, helping students quickly find available study spaces.</p>
+                <p>Uses real-time listeners and custom aggregation logic to determine the most common status reported within the last 60 minutes.</p>
                 <p><strong>Technologies:</strong> JavaScript, HTML/CSS (Tailwind), Google Firestore (NoSQL), Google Analytics, Crowdsourced Data, Netlify Deployment</p>
                 <div class="button-group">
                     <a href="https://osu-study-finder.netlify.app" target="_blank" class="cta-button">View Live App</a>
                     <a href="https://github.com/ndunl075/osu-study-finder" target="_blank" class="cta-button">View Code</a>
                 </div>
             </div>
-            <!-- END OSU STUDY SPOT FINDER CARD -->
-
             <div class="project-card">
                 <h2>Personal Budget Tracker</h2>
                 <p>Developed a command-line application in Java for tracking personal income and expenses. Implemented file I/O to save and load user data, ensuring data persistence.</p>
                 <p><strong>Technologies:</strong> Java</p>
                 <a href="https://github.com/ndunl075/Personal-Budget-Tracker" target="_blank" class="cta-button">View Code</a>
             </div>
+            
+            <div class="project-card">
+                <h2>Basic Phone Book</h2>
+                <p>Created a command-line application to manage contacts, demonstrating data structure implementation (e.g., `ArrayList` or `HashMap`) and file I/O for persistent storage.</p>
+                <p><strong>Technologies:</strong> Java</p>
+                <a href="https://github.com/ndunl075/Basic-Phone-Book-Java" target="_blank" class="cta-button">View Code</a>
+            </div>
 
+            <div class="project-card">
+                <h2>Calculator</h2>
+                <p>A command-line application demonstrating core control flow and function decomposition to handle basic arithmetic operations and error handling.</p>
+                <p><strong>Technologies:</strong> Java</p>
+                <a href="https://github.com/ndunl075/Basic-Calculator/tree/main" target="_blank" class="cta-button">View Code</a>
+            </div>
+            
             <div class="project-card">
                 <h2>Portfolio Website</h2>
                 <p>Built a personal portfolio website to showcase my skills and projects using HTML and CSS. Deployed the static website for public access using GitHub Pages.</p>
                 <p><strong>Technologies:</strong> HTML, CSS, GitHub Pages</p>
                 <a href="https://github.com/ndunl075/ndunl075.github.io" target="_blank" class="cta-button">View Code</a>
-            </div>
-
-            <div class="project-card">
-                <h2>Calculator</h2>
-                <p>Created a simple calculator application with a command-line interface to perform basic arithmetic operations.</p>
-                <p><strong>Technologies:</strong> Java</p>
-                <a href="https://github.com/ndunl075/Basic-Calculator/tree/main" target="_blank" class="cta-button">View Code</a>
             </div>
 
         </div>
