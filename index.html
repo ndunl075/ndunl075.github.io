@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Nicolas Dunlap - Portfolio</title>
+    <title>Nicolas Dunlap — Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
@@ -13,9 +13,10 @@
 <body>
 
     <nav class="main-nav">
+        <a href="index.html" class="nav-brand">ND.</a>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="aboutme.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="documents/nicolasdunlapcsresumecompact.pdf" target="_blank">Resume</a></li>
@@ -24,69 +25,97 @@
 
     <section id="hero">
         <div class="hero-content">
-            <h1>Nicolas Dunlap</h1>
-            <p>Computer Science and Engineering Student at The Ohio State University</p>
-            <a href="projects.html" class="cta-button">View My Work</a>
-            <a href="contact.html" class="cta-button secondary-cta">Contact Me</a>
+            <span class="hero-label">// Software Engineer</span>
+            <div class="hero-name">
+                <span class="hero-first">Nicolas</span>
+                <span class="hero-last">Dunlap</span>
+            </div>
+            <div class="hero-bottom">
+                <p>Computer Science & Engineering<br>at The Ohio State University.</p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn btn-primary">View Work</a>
+                    <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="about">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="images/nicoprofilephoto.JPG" alt="A photo of Nicolas Dunlap" class="profile-picture">
+        <span class="section-label">// 01 &mdash; About</span>
+        <div class="about-grid">
+            <img src="images/me.JPG" alt="Nicolas Dunlap" class="about-photo">
+            <div class="about-bio">
+                <p>Computer Science &amp; Engineering student at The Ohio State University. I build practical software — mobile apps, ML pipelines, and full-stack web tools.</p>
+                <p>Started coding at age 7. Ran my own landscaping business through high school and learned that shipping fast and communicating clearly matter as much as clean code.</p>
+                <a href="aboutme.html" class="btn btn-ghost" style="margin-top: 20px;">Full Profile</a>
             </div>
-            <div class="about-text">
-                <h2>About Me</h2>
-                <p>
-                    My passion for coding first ignited in 2nd grade when I joined a coding club and began using Scratch block coding. This early, hands-on experience in problem solving was later solidified by taking an 'Introduction to Python' class as a freshman in high school, which guided my academic path to The Ohio State University for Computer Science and Engineering.
-                </p>
-                <p>
-                    Currently, I focus on writing practical applications in Java, C++, and Python. Beyond the code, my experience running a landscaping business has taught me invaluable lessons in client communication and accountability, skills I apply to every project.
-                </p>
+            <div class="about-specs">
+                <div class="spec-item">
+                    <span class="spec-label">Education</span>
+                    <span class="spec-value">The Ohio State University<br>B.S. Computer Science &amp; Engineering</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Languages</span>
+                    <span class="spec-value">Java &middot; C++ &middot; Python &middot; JavaScript</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Focus</span>
+                    <span class="spec-value">Full-stack &middot; Mobile &middot; Machine Learning</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Status</span>
+                    <span class="spec-value">Seeking Software Engineering Internships</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="featured-projects">
-    <h2>Featured Projects</h2>
-    <div class="project-container">
+        <span class="section-label">// 02 &mdash; Work</span>
+        <h2>Featured Projects</h2>
+        <div class="project-container">
 
-        <div class="project-card">
-            <h2>gOSU: Smart Transit Assistant</h2>
-            <p>A cross-platform mobile app for both iOS and Android that computes the fastest route to any OSU destination using live bus data.</p>
-            <p>Developed a custom routing algorithm with real-time ETA processing and GeoJSON API integration. <strong>3rd place winner at Hack OHI/O 2025!</strong></p>
-            <p><strong>Technologies:</strong> React Native, JavaScript, JSON, Asynchronous Programming, Git</p>
-            <a href="https://github.com/cyanchicken1/HackOHI-O" target="_blank" class="cta-button">View Code</a>
+            <div class="project-card">
+                <div>
+                    <h2>gOSU: Smart Transit Assistant</h2>
+                    <p>Cross-platform mobile app (iOS & Android) computing the fastest route to any OSU destination using live bus data.</p>
+                    <p>Custom routing algorithm with real-time ETA processing and GeoJSON API integration. <strong>3rd place at Hack OHI/O 2025.</strong></p>
+                    <p class="card-stack"><strong>Stack:</strong> React Native · JavaScript · Async · Git</p>
+                </div>
+                <a href="https://github.com/cyanchicken1/HackOHI-O" target="_blank" class="cta-button">View Code</a>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h2>OSU Study Spot Finder</h2>
+                    <p>Real-time, crowdsourced occupancy tracker for campus libraries — helps students find open study spaces fast.</p>
+                    <p>Displays the most common occupancy report from the past hour via live Firestore listeners.</p>
+                    <p class="card-stack"><strong>Stack:</strong> JavaScript · Tailwind CSS · Firestore · Netlify</p>
+                </div>
+                <a href="https://github.com/ndunl075/osu-study-finder" target="_blank" class="cta-button">View Code</a>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h2>Tennis Match Prediction AI</h2>
+                    <p>Machine learning app that predicts professional ATP match outcomes from historical statistics.</p>
+                    <p>End-to-end ML pipeline: data processing, feature engineering, model training, and web deployment.</p>
+                    <p class="card-stack"><strong>Stack:</strong> Python · Pandas · Scikit-learn · Streamlit</p>
+                </div>
+                <a href="https://github.com/ndunl075/Tennis-Match-Predictor-AI" target="_blank" class="cta-button">View Code</a>
+            </div>
+
         </div>
-
-        <div class="project-card">
-            <h2>OSU Study Spot Finder</h2>
-            <p>A modern web application that provides real-time, crowdsourced occupancy status for campus libraries, helping students quickly find available study spaces.</p>
-            <p>Displays the most popular occupancy report from the last hour.</p>
-            <p><strong>Technologies:</strong> JavaScript, HTML/CSS (Tailwind), Google Firestore (NoSQL), Google Analytics, Crowdsourced Data, Netlify Deployment</p>
-            <a href="https://github.com/ndunl075/osu-study-finder" target="_blank" class="cta-button">View Code</a>
-        </div>
-
-        <div class="project-card">
-            <h2>Tennis Match Prediction AI</h2>
-            <p>A data-driven application that uses machine learning to predict the outcomes of professional ATP tennis matches based on historical statistics.</p>
-            <p>This project demonstrates core data structures and object-oriented principles.</p>
-            <p><strong>Technologies:</strong> Python, Pandas, Scikit-learn, Streamlit, Tkinter, Joblib</p>
-            <a href="https://github.com/ndunl075/Tennis-Match-Predictor-AI" target="_blank" class="cta-button">View Code</a>
-        </div>
-
-    </div>
-    <a href="projects.html" class="cta-button secondary-cta">View All Projects</a>
-</section>
+        <a href="projects.html" class="btn btn-ghost" style="margin-top: 40px;">View All Projects</a>
+    </section>
 
     <footer>
         <div class="footer-content">
             <p>
-                <a href="https://www.linkedin.com/in/nicolas-dunlap-293439307/" target="_blank">LinkedIn</a> |
+                <a href="https://www.linkedin.com/in/nicolas-dunlap-293439307/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/ndunl075" target="_blank">GitHub</a>
             </p>
-            <p>&copy; 2025 Nicolas Dunlap. All Rights Reserved.</p>
+            <p>&copy; 2025 Nicolas Dunlap</p>
         </div>
     </footer>
 

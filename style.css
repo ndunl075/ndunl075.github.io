@@ -1,4 +1,29 @@
-/* === General Reset and Body Styling === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* === Design Tokens === */
+:root {
+  --bg:             #080808;
+  --surface:        #0e0e0e;
+  --surface-raised: #141414;
+  --border:         #1e1e1e;
+  --border-mid:     #2a2a2a;
+  --text:           #e8e8e8;
+  --text-muted:     #666;
+  --text-dim:       #333;
+  --accent:         #00d4ff;
+  --accent-2:       #a855f7;
+  --accent-bg:      rgba(0, 212, 255, 0.07);
+  --accent-glow:    rgba(0, 212, 255, 0.18);
+  --grad:           linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+  --radius-sm:      4px;
+  --radius:         6px;
+  --nav-height:     56px;
+  --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+/* === Reset === */
+*, *::before, *::after { box-sizing: border-box; }
 
 html, body {
   margin: 0;
@@ -7,289 +32,844 @@ html, body {
 }
 
 body {
-  background-image: linear-gradient(black, #0d1b2a);
-  background-color: #0d1b2a; /* Fallback color */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white; /* Make sure default text is readable */
-  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   text-decoration: none;
-  color: #a4cff6;
+  color: var(--accent);
 }
 
-/* === Navigation Bar Styling (Your Original Styles) === */
+/* === Navigation === */
 
-/* Style the main navigation container */
 .main-nav {
-  background-color: #333; /* Dark background for the bar */
-  padding: 10px 0; /* Add some vertical padding */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background-color: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 32px;
 }
 
-/* Style the list that holds the links */
+.nav-brand {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.nav-brand:hover {
+  opacity: 1;
+}
+
 .main-nav ul {
-  list-style-type: none; /* This removes the bullet points */
-  margin: 0;
+  list-style: none;
+  margin: 0 0 0 auto;
   padding: 0;
-  text-align: center; /* Center the links within the nav bar */
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
-/* Style each list item */
 .main-nav li {
-  display: inline-block; /* This makes the list items appear side-by-side */
-  margin: 0 15px; /* Adds space between the links */
+  display: flex;
 }
 
-/* Style the actual hyperlink tags */
-.main-nav a {
-  color: white; /* White text color */
-  text-decoration: none; /* Removes the underline from links */
-  font-weight: bold;
-  font-size: 16px;
-  padding: 10px;
-  transition: color 0.3s ease; /* Adds a smooth transition for the hover effect */
-}
-
-/* Style the links when a mouse hovers over them */
-.main-nav a:hover {
-  color: #a4cff6; /* Changes color to a light blue on hover for feedback */
-}
-
-/* For links in your navigation bar */
+.main-nav a,
 .main-nav a:link,
 .main-nav a:visited {
-  color: white;
-  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background-color 0.15s;
 }
 
 .main-nav a:hover {
-  color: #a4cff6;
+  color: var(--text);
+  background-color: var(--surface-raised);
 }
 
 .main-nav a:active {
-  color: #8abde7; /* This replaces the default blue flash */
+  color: var(--accent);
 }
 
-
-/* === Hero Section Styling === */
+/* === Hero === */
 
 #hero {
-  display: flex; /* This enables flexbox, a modern way to align items */
-  flex-direction: column; /* Stacks content vertically */
-  justify-content: center; /* This centers the content horizontally */
-  align-items: center; /* This centers the content vertically */
-  min-height: 90vh; /* Makes the section take up 90% of the viewport height */
-  text-align: center;
-  padding: 0 20px; /* Adds some padding on the sides */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--nav-height));
+  padding: 80px max(40px, 6vw);
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
-/* Style the main name heading */
-#hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, var(--bg) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Style the paragraph subheading */
-#hero p {
-  font-size: 20px;
-  margin-bottom: 30px;
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%);
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Style the "Call to Action" button */
-.cta-button {
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 960px;
+}
+
+.hero-label,
+.section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hero-name {
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.hero-first {
+  display: block;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.hero-last {
+  display: block;
+  font-size: clamp(80px, 13vw, 152px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-bottom p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 280px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* === Terminal Widget === */
+
+.hero-terminal {
+  background: #080808;
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.terminal-bar {
+  background: #111;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.t-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.t-dot-red    { background: #ff5f57; }
+.t-dot-yellow { background: #febc2e; }
+.t-dot-green  { background: #28c840; }
+
+.terminal-title {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0 auto;
+  letter-spacing: 0.04em;
+}
+
+.terminal-body {
+  padding: 18px 20px 22px;
+}
+
+.t-line {
+  display: flex;
+  align-items: baseline;
+  min-height: 1.7em;
+}
+
+.t-blank { height: 10px; }
+.t-indent { padding-left: 16px; }
+
+.t-prompt { color: #a855f7; margin-right: 6px; user-select: none; }
+.t-cmd    { color: #e8e8e8; }
+.t-output { color: var(--text-muted); }
+.t-key    { color: #00d4ff; }
+.t-str    { color: #a8ff78; }
+.t-punct  { color: #666; }
+.t-brace  { color: #e8e8e8; }
+
+.t-cursor {
   display: inline-block;
-  background-color: #a4cff6; /* Light blue background */
-  color: #333; /* Dark text color */
-  padding: 12px 24px;
-  border-radius: 5px;
+  width: 7px;
+  height: 13px;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: blink 1.1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* === Buttons === */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  margin: 10px; /* Adds space between two buttons */
+  transition: gap 0.2s ease, opacity 0.15s, color 0.15s;
+}
+
+.btn::after {
+  content: '→';
+  font-size: 14px;
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(4px);
+}
+
+.btn-primary {
+  color: #fff;
+}
+
+.btn-primary:hover {
+  opacity: 0.75;
+}
+
+.btn-ghost {
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+/* Solid button variant — used for form submits and standalone CTAs */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius);
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+.btn-solid:hover {
+  background: #ddd;
+  border-color: #ddd;
+}
+
+/* cta-button: used in project cards and inline CTAs */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-mid);
+  background-color: var(--surface-raised);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin: 4px;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-button:hover {
-  background-color: #8abde7;
-  transform: translateY(-2px); /* Lifts the button slightly on hover */
+  border-color: rgba(0, 212, 255, 0.3);
+  background-color: #141414;
+  color: var(--text);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 212, 255, 0.08);
 }
 
+.secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-mid);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin: 4px;
+}
 
-/* === Projects Section Styling (Applied to #projects or #featured-projects) === */
+.secondary-cta:hover {
+  color: var(--text);
+  border-color: #404040;
+  background-color: var(--surface-raised);
+  transform: translateY(-1px);
+}
+
+/* === About Section (on homepage) === */
+
+#about {
+  padding: 100px max(40px, 6vw);
+  border-top: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 56px;
+  max-width: 960px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about-bio p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin: 0 0 14px;
+}
+
+.about-specs {
+  border-left: 1px solid var(--border);
+  padding-left: 40px;
+}
+
+.spec-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.spec-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.spec-value {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* === Featured Projects Section === */
 
 #projects, #featured-projects {
-  padding: 40px 20px; /* Adds space around the whole section */
-  text-align: center;
+  padding: 100px max(40px, 6vw);
+  border-top: 1px solid var(--border);
 }
 
-#projects h1, #featured-projects h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
+#projects > h1,
+#projects > h2,
+#featured-projects > h1,
+#featured-projects > h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 0 48px;
+  color: #fff;
+}
+
+#projects > h1::before,
+#projects > h2::before,
+#featured-projects > h1::before,
+#featured-projects > h2::before {
+  display: none;
 }
 
 .project-container {
-  display: flex; /* Aligns project cards in a row */
-  justify-content: center; /* Centers the cards */
-  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
-  gap: 30px; /* Increased space between the cards */
-  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1120px;
   margin: 0 auto;
+  counter-reset: project-counter;
 }
 
-/* PROJECT CARD BUTTON ALIGNMENT FIX */
-.project-card {
-  background-color: #1e2a38; /* A slightly lighter dark blue */
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 25px;
-  width: 300px; /* Sets a fixed width for each card */
-  text-align: left; /* Aligns text to the left inside the card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+#featured-projects .project-container {
+  justify-content: flex-start;
+  max-width: 960px;
+  margin: 0;
+}
 
-  /* --- FLEXBOX & HEIGHT FOR ALIGNMENT --- */
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between; 
-  min-height: 250px; /* NEW: Ensures all cards have the same minimum height */
-  /* -------------------------------------- */
+.project-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--border-mid);
+  border-radius: var(--radius);
+  padding: 24px;
+  flex: 1 1 240px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  counter-increment: project-counter;
+  transition: border-top-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card::before {
+  content: '0' counter(project-counter);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.project-card:hover {
+  border-top-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 212, 255, 0.06);
 }
 
 .project-card h2 {
-  margin-top: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin: 0 0 10px;
+  color: var(--text);
 }
 
 .project-card p {
-  line-height: 1.6; /* Improves readability */
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 8px;
 }
 
-.project-card .cta-button {
-  margin-top: 15px;
-  text-align: center;
+/* Inner content wrapper stretches to fill card */
+.project-card > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-
-/* === About Me Section Styling === */
-
-#about {
-  padding: 60px 20px;
-  background-color: rgba(13, 27, 42, 0.5); /* Semi-transparent dark blue overlay */
+/* Tech stack row */
+.card-stack {
+  margin-top: auto !important;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 20px !important;
 }
 
-.about-container {
-  display: flex; /* This enables the two-column layout */
-  align-items: center; /* Vertically aligns the picture and text */
-  justify-content: center; /* Horizontally centers the columns */
-  gap: 40px; /* Creates space between the picture and the text */
-  max-width: 900px; /* Sets a max width for the content */
-  margin: 0 auto; /* Centers the container on the page */
+.card-stack strong {
+  display: none;
 }
 
-/* Style the container for the image */
-.about-image {
-  flex-shrink: 0; /* Prevents the image from shrinking */
+/* Card action links — text style */
+.project-card .cta-button,
+.project-card .button-group .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  width: auto;
+  transform: none;
+  box-shadow: none;
 }
 
-/* Style for your profile picture (re-using from before) */
-.profile-picture {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  object-position: top;
-  border: 4px solid #444;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.project-card .cta-button::after {
+  content: '→';
+  font-size: 12px;
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  transition: transform 0.2s;
 }
 
-/* Style the container for the text */
-.about-text h2 {
-  font-size: 32px;
+.project-card .cta-button:hover {
+  color: var(--accent);
+  background: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.project-card .cta-button:hover::after {
+  transform: translateX(4px);
+}
+
+/* button-group inside cards */
+.button-group {
+  display: flex;
+  gap: 20px;
   margin-top: 0;
 }
 
-.about-text p {
-  font-size: 16px;
-  line-height: 1.7; /* Increases spacing between lines for readability */
-}
-
-
-/* === Content Page Styling (for About, Contact, etc.) === */
+/* === Content Pages (About, Contact) === */
 
 .content-page {
-  max-width: 800px; /* Sets a comfortable reading width */
-  margin: 40px auto; /* Centers the content on the page */
-  padding: 0 20px; /* Adds space on the sides */
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 0 24px;
   line-height: 1.7;
 }
 
 .content-page h1 {
-  font-size: 42px;
-  border-bottom: 2px solid #a4cff6; /* Adds an accent line under the main title */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin: 0 0 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
 }
 
 .content-page h2 {
-  font-size: 28px;
-  margin-top: 40px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 40px 0 10px;
+  color: var(--accent);
 }
 
-/* === Footer Styling (New Addition) === */
+.content-page p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+
+.content-page ul {
+  color: var(--text-muted);
+  padding-left: 18px;
+  margin: 0 0 20px;
+}
+
+.content-page ul li {
+  font-size: 14px;
+  line-height: 1.75;
+  margin-bottom: 6px;
+}
+
+.content-page strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* === Contact Info Card === */
+
+.contact-info {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.contact-info strong {
+  color: var(--text);
+}
+
+.contact-info a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.contact-info a:hover {
+  color: var(--text);
+}
+
+/* === Contact Form === */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 22px;
+  background-color: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.08);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-dim);
+}
+
+form textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+/* === Footer === */
 
 footer {
-  background-color: #111; /* A very dark background */
-  color: #aaa; /* Light grey text color */
+  border-top: 1px solid var(--border);
+  padding: 28px 20px;
   text-align: center;
-  padding: 20px;
-  margin-top: 40px; /* Pushes the footer down from the last content */
+  margin-top: 0;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .footer-content a {
-  color: #a4cff6; /* Light blue for links */
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0 12px;
+  transition: color 0.2s;
   text-decoration: none;
-  margin: 0 10px;
 }
 
 .footer-content a:hover {
-  text-decoration: underline;
+  color: var(--text);
 }
 
 .footer-content p {
-  margin: 5px 0;
+  margin: 4px 0;
+  font-size: 12px;
+  color: var(--text-dim);
 }
 
-/* === Responsive Design (for Mobile Phones) === */
+/* === Responsive === */
 
 @media (max-width: 768px) {
-  
-  /* THIS SECTION MAKES THE NAVIGATION VERTICAL ON SMALL SCREENS (Phones) */
-  .main-nav li {
-    display: block; /* Stacks nav links vertically */
-    margin: 10px 0;
+  .main-nav {
+    padding: 0 16px;
   }
-  
-  /* Make two-column layouts stack vertically */
-  .about-container {
+
+  .nav-brand {
+    font-size: 13px;
+  }
+
+  .main-nav a,
+  .main-nav a:link,
+  .main-nav a:visited {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .about-photo {
+    grid-column: 1 / -1;
+    width: 140px;
+  }
+
+  .about-specs {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    grid-column: 1 / -1;
+  }
+
+  .hero-last {
+    font-size: clamp(64px, 16vw, 100px);
+  }
+
+  .hero-bottom {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
 
-  /* Adjust font sizes for smaller screens */
-  #hero h1 {
-    font-size: 36px;
-  }
-
-  #hero p {
-    font-size: 18px;
-  }
-
-  #projects h1, #featured-projects h2, .content-page h1 {
-    font-size: 32px;
-  }
-  
   .project-card {
-    width: 90%; /* Make cards take up most of the screen width */
-    margin: 10px auto;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .content-page {
+    margin: 36px auto;
+  }
+
+  .content-page h1 {
+    font-size: 30px;
   }
 }

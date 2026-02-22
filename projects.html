@@ -2,45 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nicolas Dunlap - Portfolio</title>
+    <title>Projects — Nicolas Dunlap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <style>
-        /* New styles for 3-column project grid with responsiveness */
         .project-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 25px; 
-            padding: 20px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        /* Media query for responsiveness: Switch to 2 columns on tablets/smaller screens */
         @media (max-width: 1024px) {
-            .project-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .project-container { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* Media query for responsiveness: Switch to 1 column on mobile phones */
-        @media (max-width: 600px) {
-            .project-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Styles for the project card button group (Existing) */
-        .button-group {
-            display: flex;
-            gap: 10px; 
-            margin-top: 15px;
-        }
-
-        .button-group .cta-button {
-            margin: 0;
-            flex: 1;  
-            text-align: center;
+        @media (max-width: 640px) {
+            .project-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -48,9 +27,10 @@
 <body>
 
     <nav class="main-nav">
+        <a href="index.html" class="nav-brand">ND.</a>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="aboutme.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="documents/nicolasdunlapcsresumecompact.pdf" target="_blank">Resume</a></li>
@@ -58,68 +38,57 @@
     </nav>
 
     <main class="content-page">
-        <h1>My Projects</h1>
+        <h1>Projects</h1>
         <div class="project-container">
 
             <div class="project-card">
-                <h2>gOSU: Smart Transit Assistant</h2>
-                <p>A cross-platform mobile app for both iOS and Android that computes the fastest route to any OSU destination using live bus data.</p>
-                <p>Developed a custom routing algorithm calculating walk, wait, ride, and post-stop times from real-time ETAs, processing GeoJSON API data into point coordinates for accurate mapping and dynamic optimization.</p>
-                <p><strong>Achievement:</strong> Secured 3rd place (out of 30+ teams) at Hack OHI/O 2025</p>
-                <p><strong>Technologies:</strong> React Native, JavaScript, JSON, Asynchronous Programming, Git</p>
+                <div>
+                    <h2>gOSU: Smart Transit Assistant</h2>
+                    <p>Cross-platform mobile app (iOS & Android) computing the fastest route to any OSU destination using live bus data.</p>
+                    <p>Custom routing algorithm with real-time ETA processing and GeoJSON API integration.</p>
+                    <p><strong>Achievement:</strong> 3rd place (30+ teams) at Hack OHI/O 2025</p>
+                    <p class="card-stack"><strong>Stack:</strong> React Native · JavaScript · Async · Git</p>
+                </div>
                 <div class="button-group">
                     <a href="https://github.com/cyanchicken1/HackOHI-O" target="_blank" class="cta-button">View Code</a>
                 </div>
             </div>
-            
+
             <div class="project-card">
-                <h2>Tennis Match Prediction AI</h2>
-                <p>A data-driven application that uses machine learning to predict the outcomes of professional ATP tennis matches based on historical statistics.</p>
-                <p>Developed an end-to-end machine learning pipeline, which included data processing, feature engineering, model training, and deployment into both a web app and a desktop GUI.</p>
-                <p><strong>Technologies:</strong> Python, Pandas, Scikit-learn, Streamlit, Tkinter, Joblib</p>
-                
+                <div>
+                    <h2>Tennis Match Prediction AI</h2>
+                    <p>ML app predicting professional ATP match outcomes from historical statistics.</p>
+                    <p>End-to-end pipeline: data processing, feature engineering, model training, and deployment as both web app and desktop GUI.</p>
+                    <p class="card-stack"><strong>Stack:</strong> Python · Pandas · Scikit-learn · Streamlit · Tkinter</p>
+                </div>
                 <div class="button-group">
-                    <a href="https://tennis-match-predictor-ai-nicolasdunlap.streamlit.app/" target="_blank" class="cta-button">View Live App</a>
+                    <a href="https://tennis-match-predictor-ai-nicolasdunlap.streamlit.app/" target="_blank" class="cta-button">Live App</a>
                     <a href="https://github.com/ndunl075/Tennis-Match-Predictor-AI" target="_blank" class="cta-button">View Code</a>
                 </div>
             </div>
-            
+
             <div class="project-card">
-                <h2>OSU Study Spot Finder</h2>
-                <p>A modern web application that provides real-time, crowdsourced occupancy status for campus libraries, helping students quickly find available study spaces.</p>
-                <p>Uses real-time listeners and custom aggregation logic to determine the most common status reported within the last 60 minutes.</p>
-                <p><strong>Technologies:</strong> JavaScript, HTML/CSS (Tailwind), Google Firestore (NoSQL), Google Analytics, Crowdsourced Data, Netlify Deployment</p>
+                <div>
+                    <h2>OSU Study Spot Finder</h2>
+                    <p>Real-time, crowdsourced occupancy tracker for campus libraries. Helps students find open study spaces fast.</p>
+                    <p>Live Firestore listeners with custom aggregation to surface the most-reported status from the past 60 minutes.</p>
+                    <p class="card-stack"><strong>Stack:</strong> JavaScript · Tailwind CSS · Firestore · Netlify</p>
+                </div>
                 <div class="button-group">
-                    <a href="https://osu-study-finder.netlify.app" target="_blank" class="cta-button">View Live App</a>
+                    <a href="https://osu-study-finder.netlify.app" target="_blank" class="cta-button">Live App</a>
                     <a href="https://github.com/ndunl075/osu-study-finder" target="_blank" class="cta-button">View Code</a>
                 </div>
             </div>
-            <div class="project-card">
-                <h2>Personal Budget Tracker</h2>
-                <p>Developed a command-line application in Java for tracking personal income and expenses. Implemented file I/O to save and load user data, ensuring data persistence.</p>
-                <p><strong>Technologies:</strong> Java</p>
-                <a href="https://github.com/ndunl075/Personal-Budget-Tracker" target="_blank" class="cta-button">View Code</a>
-            </div>
-            
-            <div class="project-card">
-                <h2>Basic Phone Book</h2>
-                <p>Created a command-line application to manage contacts, demonstrating data structure implementation (e.g., `ArrayList` or `HashMap`) and file I/O for persistent storage.</p>
-                <p><strong>Technologies:</strong> Java</p>
-                <a href="https://github.com/ndunl075/Basic-Phone-Book-Java" target="_blank" class="cta-button">View Code</a>
-            </div>
 
             <div class="project-card">
-                <h2>Calculator</h2>
-                <p>A command-line application demonstrating core control flow and function decomposition to handle basic arithmetic operations and error handling.</p>
-                <p><strong>Technologies:</strong> Java</p>
-                <a href="https://github.com/ndunl075/Basic-Calculator/tree/main" target="_blank" class="cta-button">View Code</a>
-            </div>
-            
-            <div class="project-card">
-                <h2>Portfolio Website</h2>
-                <p>Built a personal portfolio website to showcase my skills and projects using HTML and CSS. Deployed the static website for public access using GitHub Pages.</p>
-                <p><strong>Technologies:</strong> HTML, CSS, GitHub Pages</p>
-                <a href="https://github.com/ndunl075/ndunl075.github.io" target="_blank" class="cta-button">View Code</a>
+                <div>
+                    <h2>Portfolio Website</h2>
+                    <p>This site. Built with vanilla HTML, CSS, and JavaScript. Deployed via GitHub Pages.</p>
+                    <p class="card-stack"><strong>Stack:</strong> HTML · CSS · JavaScript · GitHub Pages</p>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/ndunl075/ndunl075.github.io" target="_blank" class="cta-button">View Code</a>
+                </div>
             </div>
 
         </div>
@@ -128,11 +97,12 @@
     <footer>
         <div class="footer-content">
             <p>
-                <a href="https://www.linkedin.com/in/nicolas-dunlap-293439307/" target="_blank">LinkedIn</a> |
+                <a href="https://www.linkedin.com/in/nicolas-dunlap-293439307/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/ndunl075" target="_blank">GitHub</a>
             </p>
-            <p>&copy; 2025 Nicolas Dunlap. All Rights Reserved.</p>
+            <p>&copy; 2025 Nicolas Dunlap</p>
         </div>
     </footer>
+
 </body>
 </html>
